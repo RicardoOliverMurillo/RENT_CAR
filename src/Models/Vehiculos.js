@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-let VehiculoSchema = new mongoose.Schema({
+let VehiculoSchema = new Schema({
     placa   :{
         type : String,
         required : true,
@@ -55,24 +56,5 @@ let VehiculoSchema = new mongoose.Schema({
     }
 });
 
-let Vehiculo = mongoose.model("Client", VehiculoSchema);
+module.exports = mongoose.model("Vehiculos", VehiculoSchema);
 
-module.exports.getVehiculos = function(callback, limit){
-    Vehiculo.find(callback).limit(limit);
-}
-
-module.exports.getVehiculoByName = function(vehiculo, callback){
-    Vehiculo.find(vehiculo, callback);
-}
-
-module.exports.insertVehiculo = function(data, callback){
-    Vehiculo.create(data, callback);
-}
-
-module.exports.updateVehiculo = function(vehiculo, data, callback){
-    Vehiculo.update(vehiculo, data, callback);
-}
-
-module.exports.deleteVehiculo = function (id, callback){
-    Vehiculo.findByIdAndRemove(id,callback);
-}

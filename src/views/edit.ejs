@@ -1,0 +1,58 @@
+<% include Partials/_Header%>
+
+<div class="container">
+        <div class="row">
+            <!--FORM-->
+        <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/edit/<%= vehicle._id %>" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="placa" placeholder="Inserte la placa" class="form-control" value="<%= vehicle.placa%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="number" name="capacidad" placeholder="Inserte la capacidad" class="form-control" value="<%= vehicle.capacidad%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="marca" placeholder="Inserte la marca" class="form-control"value="<%= vehicle.marca%>">
+                            </div>    
+                            <div class="form-group">
+                                    <input type="text" name="estilo" placeholder="Inserte el estilo" class="form-control"value="<%= vehicle.estilo%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="modelo" placeholder="Inserte el modelo" class="form-control"value="<%= vehicle.modelo%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="color" placeholder="Inserte el color" class="form-control"value="<%= vehicle.color%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="cilindrada" placeholder="Inserte la cilindrada" class="form-control"value="<%= vehicle.cilindrada%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="combustible" placeholder="Inserte el combustible (gasolina, electrico, hibrido)" class="form-control"value="<%= vehicle.combustible%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="transmision" placeholder="Inserte la transmision" class="form-control"value="<%= vehicle.transmision%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="anno" placeholder="Inserte el año" class="form-control"value="<%= vehicle.anno%>">
+                            </div>
+                            <div class="form-group">
+                                    <textarea name="extras" cols="54" placeholder="Inserte las extras"><%= vehicle.extras%></textarea>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="precioRenta" placeholder="Inserte el precio de la Renta" class="form-control"value="<%= vehicle.precioRenta%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="estado" placeholder="Inserte el estado (disponible, ocupado)" class="form-control"value="<%= vehicle.estado%>">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block">Modificar Vehiculo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<% include Partials/_Footer%>

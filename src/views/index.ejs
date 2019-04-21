@@ -1,0 +1,108 @@
+<% include Partials/_Header%>
+
+<div class="container">
+        <div class="row">
+            <!--FORM-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/addVehicle" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="placa" placeholder="Inserte la placa" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="number" name="capacidad" placeholder="Inserte la capacidad" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="marca" placeholder="Inserte la marca" class="form-control">
+                            </div>    
+                            <div class="form-group">
+                                    <input type="text" name="estilo" placeholder="Inserte el estilo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="modelo" placeholder="Inserte el modelo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="color" placeholder="Inserte el color" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="cilindrada" placeholder="Inserte la cilindrada" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="combustible" placeholder="Inserte el combustible (gasolina, electrico, hibrido)" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="transmision" placeholder="Inserte la transmision" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="anno" placeholder="Inserte el año" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <textarea name="extras" cols="54" placeholder="Inserte las extras"></textarea>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="precioRenta" placeholder="Inserte el precio de la Renta" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="estado" placeholder="Inserte el estado (disponible, ocupado)" class="form-control">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block">Agregar Vehiculo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--LIST-->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                                <th>Placa</th>
+                                <th>Capacidad</th>
+                                <th>Marca</th>
+                                <th>Estilo</th>
+                                <th>Modelo</th>
+                                <th>Color</th>
+                                <th>Cilindrada</th>
+                                <th>Combustible</th>
+                                <th>transmision</th>
+                                <th>Año</th>
+                                <th>Extras</th>
+                                <th>Precio Renta</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < vehicles.length; i++){ %>
+                             <tr>
+                                <td><%= vehicles[i].placa%></td>
+                                <td><%= vehicles[i].capacidad%></td>
+                                <td><%= vehicles[i].marca%></td>
+                                <td><%= vehicles[i].estilo%></td>
+                                <td><%= vehicles[i].modelo%></td>
+                                <td><%= vehicles[i].color%></td>
+                                <td><%= vehicles[i].cilindrada%></td>
+                                <td><%= vehicles[i].combustible%></td>
+                                <td><%= vehicles[i].transmision%></td>
+                                <td><%= vehicles[i].anno%></td>
+                                <td><%= vehicles[i].extras%></td>
+                                <td><%= vehicles[i].precioRenta%></td>
+                                <td><%= vehicles[i].estado%></td>
+                                <td>
+                                    <a href="/rentar/<%= vehicles[i]._id%>" class="btn <%= vehicles[i].estado === 'disponible' ? 'btn-success' : 'btn-dark'%> ">Rentar</a>
+                                    <a href="/delete/<%= vehicles[i]._id%>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/edit/<%= vehicles[i]._id%>" class="btn btn-info">Modificar</a>
+                                </td>
+                             </tr>
+                            <%}%>    
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        
+<% include Partials/_Footer%>
+        
