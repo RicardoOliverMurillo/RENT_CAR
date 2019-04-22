@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Vehicle = require('../Models/Vehiculos')
 
-router.get('/vehicles', async (req,res)=>{
+router.get('/', async (req,res)=>{
     const vehicles = await Vehicle.find();
     res.render('index', {
         vehicles

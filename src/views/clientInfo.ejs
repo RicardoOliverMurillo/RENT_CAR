@@ -1,0 +1,61 @@
+<% include Partials/_Header%>
+
+<div class="container">
+        <div class="row">
+            <!--FORM-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/client/addClient" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="cedula" placeholder="Inserte la cedula" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="nombre" placeholder="Inserte el nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="correo" placeholder="Inserte el correo" class="form-control">
+                            </div>    
+                            <div class="form-group">
+                                    <input type="text" name="telefono" placeholder="Inserte el teléfono" class="form-control">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block">Agregar Cliente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--LIST-->
+            <div class="col-md-7">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Correo</th>
+                                    <th>Teléfono</th>
+                                    <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < clients.length; i++){ %>
+                                 <tr>
+                                    <td><%= clients[i].cedula%></td>
+                                    <td><%= clients[i].nombre%></td>
+                                    <td><%= clients[i].correo%></td>
+                                    <td><%= clients[i].telefono%></td>
+                                    <td>
+                                        <a href="/client/delete/<%= clients[i]._id%>" class="btn btn-danger">Eliminar</a>
+                                        <a href="/client/edit/<%= clients[i]._id%>" class="btn btn-info">Modificar</a>
+                                    </td>
+                                 </tr>
+                                <%}%>    
+    
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+        
+<% include Partials/_Footer%>

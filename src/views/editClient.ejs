@@ -1,0 +1,28 @@
+<% include Partials/_Header%>
+
+<div class="container">
+        <div class="row">
+            <!--FORM-->
+        <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/client/edit/<%= client._id %>" method="POST">
+                            <div class="form-group">
+                                    <input type="text" name="nombre" placeholder="Inserte el nombre" class="form-control" value="<%= client.nombre%>">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="correo" placeholder="Inserte el correo" class="form-control"value="<%= client.correo%>">
+                            </div>    
+                            <div class="form-group">
+                                    <input type="text" name="telefono" placeholder="Inserte el teléfono" class="form-control"value="<%= client.telefono%>">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block">Modificar Cliente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<% include Partials/_Footer%>

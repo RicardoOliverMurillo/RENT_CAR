@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-let ClienteSchema = new mongoose.Schema({
+let ClienteSchema = new Schema({
     cedula   :{
         type : String,
         required : true,
@@ -21,24 +22,4 @@ let ClienteSchema = new mongoose.Schema({
     }
 })
 
-let Cliente = mongoose.model("Cliente", ClienteSchema);
-
-module.exports.getClientes = function(callback, limit){
-    Cliente.find(callback).limit(limit);
-}
-
-module.exports.getClienteByCedula = function(cliente, callback){
-    Cliente.find(cliente, callback);
-}
-
-module.exports.insertCliente = function(data, callback){
-    Cliente.create(data, callback);
-}
-
-module.exports.updateCliente = function(cliente, data, callback){
-    Cliente.update(cliente, data, callback);
-}
-
-module.exports.deleteCliente = function (id, callback){
-    Cliente.findOneAndRemove(id,callback);
-}
+module.exports = mongoose.model("Clientes", ClienteSchema);
