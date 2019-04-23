@@ -1,0 +1,57 @@
+<% include Partials/_Header%>
+
+<div class="container">
+        <div class="row">
+            <!--FORM-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/rent/addRent" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="cedula" placeholder="Inserte la cedula" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name="placa" placeholder="Inserte la placa" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <input type="number" name="cant_dias" placeholder="Inserte la cantidad de dias" class="form-control">
+                            </div> 
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block">Rentar Vehiculo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!--LIST-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                            <th>Cédula</th>
+                            <th>Placa</th>
+                            <th>Dias de renta</th>
+                            <th>Monto total</th>
+                            <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < rents.length; i++){ %>
+                         <tr>
+                            <td><%= rents[i].cedula%></td>
+                            <td><%= rents[i].placa%></td>
+                            <td><%= rents[i].cant_dias%></td>
+                            <td><%= rents[i].precio%></td>
+                            <td>
+                                <a href="/rent/delete/<%= rents[i]._id%>" class="btn btn-danger">Eliminar</a>
+                                <a href="/rent/edit/<%= rents[i]._id%>" class="btn btn-info">Modificar</a>
+                            </td>
+                         </tr>
+                        <%}%>    
+
+                </tbody>
+            </table>
+        </div>
+</div>
+        
+<% include Partials/_Footer%>

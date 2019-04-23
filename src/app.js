@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost/RENT_CAR')
 //import routes
 const vehiclesRoutes = require("./routes/VehiculosRoutes");
 const clientRoutes = require('./routes/ClientsRoutes');
+const rentRoutes = require('./routes/RentRoutes');
 
 //settings
 app.set('port', process.env.PORT || 3000);
@@ -25,6 +26,7 @@ app.use(express.urlencoded({extended:false}));
 //routes
 app.use('/', vehiclesRoutes);
 app.use('/client', clientRoutes);
+app.use('/rent', rentRoutes);
 
 //starting the server
 app.listen(app.get('port'), ()=>{
