@@ -55,10 +55,6 @@
             </div>
             <!--LIST-->
             <div class="col-md-7">
-                <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2 col-md-5" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0 col-md-5" type="submit">Search</button>
-                </form>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -95,7 +91,6 @@
                                 <td><%= vehicles[i].precioRenta%></td>
                                 <td><%= vehicles[i].estado%></td>
                                 <td>
-                                    <a href="/rentar/<%= vehicles[i]._id%>" class="btn <%= vehicles[i].estado === 'disponible' ? 'btn-success' : 'btn-dark'%> ">Rentar</a>
                                     <a href="/delete/<%= vehicles[i]._id%>" class="btn btn-danger">Eliminar</a>
                                     <a href="/edit/<%= vehicles[i]._id%>" class="btn btn-info">Modificar</a>
                                 </td>

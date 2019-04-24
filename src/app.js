@@ -27,6 +27,7 @@ app.use(express.urlencoded({extended:false}));
 app.use('/', vehiclesRoutes);
 app.use('/client', clientRoutes);
 app.use('/rent', rentRoutes);
+app.use('/consultas', vehiclesRoutes);
 
 //starting the server
 app.listen(app.get('port'), ()=>{

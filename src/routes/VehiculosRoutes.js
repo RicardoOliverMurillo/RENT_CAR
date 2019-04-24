@@ -43,4 +43,19 @@ router.post('/edit/:id', async (req, res) => {
     await Vehicle.update({_id : id}, req.body);
     res.redirect('/'); 
 })
+
+router.get('/consultas', async (req,res)=>{
+    res.render('consultasInfo');
+})
+
+router.get('/consultasInfo', async (req,res)=>{
+    const info = req.query.busqueda;
+    const vehicles = await Vehicle.find({$or : [{placa : info}, {marca : info}, {modelo : info}]});
+    res.render('consultasInfo', {
+        vehicles
+    });
+    console.log(vehicles);
+    
+})
+
 module.exports = router;

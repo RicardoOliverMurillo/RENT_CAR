@@ -1,0 +1,55 @@
+<% include Partials/_Header%>
+<div class="container">
+    <div class="row">
+        <div>
+            <form class="form-inline my-2 my-lg-0" action="/consultasInfo" method="GET" >
+                <input class="form-control mr-sm-10" name="busqueda" type="search" placeholder="Buscar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+        <!--LIST-->
+        <!--LIST-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                            <th>Placa</th>
+                            <th>Capacidad</th>
+                            <th>Marca</th>
+                            <th>Estilo</th>
+                            <th>Modelo</th>
+                            <th>Color</th>
+                            <th>Cilindrada</th>
+                            <th>Combustible</th>
+                            <th>transmision</th>
+                            <th>Año</th>
+                            <th>Extras</th>
+                            <th>Precio Renta</th>
+                            <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < vehicles.length; i++){ %>
+                         <tr>
+                            <td><%= vehicles[i].placa%></td>
+                            <td><%= vehicles[i].capacidad%></td>
+                            <td><%= vehicles[i].marca%></td>
+                            <td><%= vehicles[i].estilo%></td>
+                            <td><%= vehicles[i].modelo%></td>
+                            <td><%= vehicles[i].color%></td>
+                            <td><%= vehicles[i].cilindrada%></td>
+                            <td><%= vehicles[i].combustible%></td>
+                            <td><%= vehicles[i].transmision%></td>
+                            <td><%= vehicles[i].anno%></td>
+                            <td><%= vehicles[i].extras%></td>
+                            <td><%= vehicles[i].precioRenta%></td>
+                            <td><%= vehicles[i].estado%></td>
+                         </tr>
+                        <%}%>    
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<% include Partials/_Footer%>
