@@ -45,7 +45,10 @@ router.post('/edit/:id', async (req, res) => {
 })
 
 router.get('/consultas', async (req,res)=>{
-    res.render('consultasInfo');
+    const vehicles = await Vehicle.find();
+    res.render('consultasInfo', {
+        vehicles
+    });
 })
 
 router.get('/consultasInfo', async (req,res)=>{
@@ -55,7 +58,6 @@ router.get('/consultasInfo', async (req,res)=>{
         vehicles
     });
     console.log(vehicles);
-    
 })
 
 module.exports = router;

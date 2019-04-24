@@ -8,7 +8,6 @@
             </form>
         </div>
         <!--LIST-->
-        <!--LIST-->
         <div class="col-md-7">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -29,23 +28,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(var i = 0; i < vehicles.length; i++){ %>
-                         <tr>
-                            <td><%= vehicles[i].placa%></td>
-                            <td><%= vehicles[i].capacidad%></td>
-                            <td><%= vehicles[i].marca%></td>
-                            <td><%= vehicles[i].estilo%></td>
-                            <td><%= vehicles[i].modelo%></td>
-                            <td><%= vehicles[i].color%></td>
-                            <td><%= vehicles[i].cilindrada%></td>
-                            <td><%= vehicles[i].combustible%></td>
-                            <td><%= vehicles[i].transmision%></td>
-                            <td><%= vehicles[i].anno%></td>
-                            <td><%= vehicles[i].extras%></td>
-                            <td><%= vehicles[i].precioRenta%></td>
-                            <td><%= vehicles[i].estado%></td>
-                         </tr>
-                        <%}%>    
+                    <tbody>
+                        <% for(var i = 0; i < vehicles.length; i++){ %>
+                             <tr>
+                                <td><%= vehicles[i].placa%></td>
+                                <td><%= vehicles[i].capacidad%></td>
+                                <td><%= vehicles[i].marca%></td>
+                                <td><%= vehicles[i].estilo%></td>
+                                <td><%= vehicles[i].modelo%></td>
+                                <td><%= vehicles[i].color%></td>
+                                <td><%= vehicles[i].cilindrada%></td>
+                                <td><%= vehicles[i].combustible%></td>
+                                <td><%= vehicles[i].transmision%></td>
+                                <td><%= vehicles[i].anno%></td>
+                                <td><%= vehicles[i].extras%></td>
+                                <td><%= vehicles[i].precioRenta%></td>
+                                <td><%= vehicles[i].estado%></td>
+                             </tr>
+                            <%}%>    
+                    </tbody>
 
                 </tbody>
             </table>
