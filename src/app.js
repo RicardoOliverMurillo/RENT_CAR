@@ -28,6 +28,7 @@ app.use('/', vehiclesRoutes);
 app.use('/client', clientRoutes);
 app.use('/rent', rentRoutes);
 app.use('/consultas', vehiclesRoutes);
+app.use('/resumen', vehiclesRoutes);
 
 //starting the server
 app.listen(app.get('port'), ()=>{

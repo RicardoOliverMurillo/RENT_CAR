@@ -60,4 +60,53 @@ router.get('/consultasInfo', async (req,res)=>{
     console.log(vehicles);
 })
 
+router.get('/resumen', async (req,res)=>{
+    const vehicles = await Vehicle.find();
+    var arrayResult = [];
+    var total = 0;
+    var max = 0;
+    var min = vehicles[0].precioRenta;
+    var avg = 0;
+    for(i in vehicles){ 
+        total = total + 1;
+        if(parseInt(vehicles[i].precioRenta)>max){
+            max=parseInt(vehicles[i].precioRenta)
+        }
+        if(parseInt(vehicles[i].precioRenta)<min){
+            min=parseInt(vehicles[i].precioRenta);
+        }
+        avg=avg+parseInt(vehicles[i].precioRenta);
+    }
+    var avgTotal = avg/total;
+    arrayResult.push(total, min, max, avgTotal);
+    res.render('resumen', {
+        arrayResult
+    });
+})
+
+router.get('/resumenInfo', async (req,res)=>{
+    const info = req.query.busqueda;
+    const vehicles = await Vehicle.find({marca : info});
+    var arrayResult = [];
+    var total = 0;
+    var max = 0;
+    var min = vehicles[0].precioRenta;
+    var avg = 0;
+    for(i in vehicles){ 
+        total = total + 1;
+        if(parseInt(vehicles[i].precioRenta)>max){
+            max=parseInt(vehicles[i].precioRenta)
+        }
+        if(parseInt(vehicles[i].precioRenta)<min){
+            min=parseInt(vehicles[i].precioRenta);
+        }
+        avg=avg+parseInt(vehicles[i].precioRenta);
+    }
+    var avgTotal = avg/total;
+    arrayResult.push(total, min, max, avgTotal);
+    res.render('resumen', {
+        arrayResult
+    });
+})
+
 module.exports = router;
