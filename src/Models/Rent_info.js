@@ -15,7 +15,7 @@ let RentSchema = new Schema({
         required : true
     },
     precio :{
-        type : String,
+        type : Number,
         required : true
     }
 })

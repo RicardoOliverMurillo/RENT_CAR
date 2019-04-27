@@ -2,8 +2,13 @@
 <div class="container">
     <div class="row">
         <div>
-            <form class="form-inline my-2 my-lg-0" action="/consultasInfo" method="GET" >
+            <form class="form-inline my-2 my-lg-5" action="/consultasInfo" method="GET" >
                 <input class="form-control mr-sm-10" name="busqueda" type="search" placeholder="Buscar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <form class="form-inline my-2 my-lg-5" action="/rangeInfo" method="GET" >
+                <input class="form-control mr-sm-10 " name="min_range" type="number" placeholder="Precio Mínimo..." aria-label="Search">
+                <input class="form-control mr-sm-10 " name="max_range" type="number" placeholder="Precio Máximo..." aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>

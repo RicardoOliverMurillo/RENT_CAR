@@ -70,12 +70,12 @@ router.get('/resumen', async (req,res)=>{
     for(i in vehicles){ 
         total = total + 1;
         if(parseInt(vehicles[i].precioRenta)>max){
-            max=parseInt(vehicles[i].precioRenta)
+            max=vehicles[i].precioRenta
         }
         if(parseInt(vehicles[i].precioRenta)<min){
-            min=parseInt(vehicles[i].precioRenta);
+            min=vehicles[i].precioRenta;
         }
-        avg=avg+parseInt(vehicles[i].precioRenta);
+        avg=avg+vehicles[i].precioRenta;
     }
     var avgTotal = avg/total;
     arrayResult.push(total, min, max, avgTotal);
@@ -95,18 +95,26 @@ router.get('/resumenInfo', async (req,res)=>{
     for(i in vehicles){ 
         total = total + 1;
         if(parseInt(vehicles[i].precioRenta)>max){
-            max=parseInt(vehicles[i].precioRenta)
+            max=vehicles[i].precioRenta;
         }
         if(parseInt(vehicles[i].precioRenta)<min){
-            min=parseInt(vehicles[i].precioRenta);
+            min=vehicles[i].precioRenta;
         }
-        avg=avg+parseInt(vehicles[i].precioRenta);
+        avg=avg+vehicles[i].precioRenta;
     }
     var avgTotal = avg/total;
     arrayResult.push(total, min, max, avgTotal);
     res.render('resumen', {
         arrayResult
     });
+})
+
+router.get('/rangeInfo', async (req,res)=>{
+    const vehicles = await Vehicle.find({ precioRenta : {$gte: parseInt(req.query.min_range), $lte:parseInt(req.query.max_range)}});
+    res.render('consultasInfo', {
+        vehicles
+    });
+    console.log(req.query);
 })
 
 module.exports = router;

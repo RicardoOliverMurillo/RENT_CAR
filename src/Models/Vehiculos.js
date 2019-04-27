@@ -46,7 +46,7 @@ let VehiculoSchema = new Schema({
         required : true
     },
     precioRenta :{
-        type : String,
+        type : Number,
         required : true
     },
     estado :{

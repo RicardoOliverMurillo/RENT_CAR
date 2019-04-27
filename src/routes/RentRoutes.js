@@ -17,7 +17,7 @@ router.post('/addRent', async (req, res) => {
     rent.cedula = req.body.cedula;
     rent.placa = req.body.placa;
     rent.cant_dias = req.body.cant_dias;
-    rent.precio = parseInt(req.body.cant_dias) * parseInt(vehicle.precioRenta);
+    rent.precio = parseInt(req.body.cant_dias) * vehicle.precioRenta;
     await rent.save();
     res.redirect('/rent');
 })
@@ -37,8 +37,11 @@ router.get('/edit/:id', async (req,res)=>{
 })
 
 router.post('/edit/:id', async (req, res) => {
+    const vehicle = await Vehicle.findOne({placa : req.body.placa})
     const { id } = req.params;
+    const newPrice = parseInt(req.body.cant_dias) * vehicle.precioRenta;
     await Rent.update({_id : id}, req.body);
+    await Rent.updateOne({_id : id}, {precio : newPrice})
     res.redirect('/rent'); 
 })
 module.exports = router;
