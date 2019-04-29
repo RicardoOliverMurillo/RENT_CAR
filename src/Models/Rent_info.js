@@ -8,7 +8,8 @@ let RentSchema = new Schema({
     },
     placa   :{
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
     cant_dias :{
         type : String,
