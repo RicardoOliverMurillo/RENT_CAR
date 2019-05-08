@@ -18,6 +18,7 @@ router.post('/addRent', async (req, res) => {
     rent.placa = req.body.placa;
     rent.cant_dias = req.body.cant_dias;
     rent.precio = parseInt(req.body.cant_dias) * vehicle.precioRenta;
+    await Vehicle.update({placa : req.body.placa}, {estado : "No Disponible"});
     await rent.save();
     res.redirect('/rent');
 })
